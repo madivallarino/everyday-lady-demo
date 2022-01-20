@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_140442) do
+ActiveRecord::Schema.define(version: 2022_01_20_140626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,23 @@ ActiveRecord::Schema.define(version: 2022_01_20_140442) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "wish_list_items", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.integer "price"
+    t.bigint "wishlist_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["wishlist_id"], name: "index_wish_list_items_on_wishlist_id"
+  end
+
+  create_table "wish_lists", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_wish_lists_on_user_id"
   end
 
 end
