@@ -1,4 +1,5 @@
 import PastOrderedItem from "./PastOrderedItem";
+import React from 'react';
 
 function PastOrderedCart({item}){
 

@@ -1,13 +1,14 @@
+import React from 'react';
 import { Switch, Route } from "react-router-dom";
-import UnauthorizedLandingPage from './UnauthorizedLandingPage';
 import Signin from "./Signin";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import UnauthorizedClothing from "./UnauthorizedClothing";
-import UnauthorizedHome from "./UnauthorizedHome";
-import UnauthorizedLifestyle from "./UnauthorizedLifestyle";
-import UnauthorizedAbout from "./UnauthorizedAbout";
-import UnauthorizedProductPage from "./UnauthorizedProductPage";
+import UnauthorizedClothing from "./UnauthorizedApp/UnauthorizedClothing";
+import UnauthorizedHome from "./UnauthorizedApp/UnauthorizedHome";
+import UnauthorizedLifestyle from "./UnauthorizedApp/UnauthorizedLifestyle";
+import UnauthorizedLandingPage from './UnauthorizedApp/UnauthorizedLandingPage';
+import UnauthorizedAbout from "./UnauthorizedApp/UnauthorizedAbout";
+import UnauthorizedProductPage from "./UnauthorizedApp/UnauthorizedProductPage";
 const UnauthorizedApp = ({onLogin}) => {
     
     
@@ -17,7 +18,7 @@ const UnauthorizedApp = ({onLogin}) => {
             <NavBar />
         <Switch>
         <Route path="/about">
-            <UnauthorizedAbout />
+            {/* <UnauthorizedAbout /> */}
         </Route>
         <Route path='/signin'>
             <Signin onLogin={onLogin}/>

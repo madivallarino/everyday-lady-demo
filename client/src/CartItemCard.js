@@ -1,3 +1,4 @@
+import React from 'react';
 
 const CartItemCard = (props) => {
 const { id, name, price, quantity, image, deleteFromCart, handleQuantity } = props

@@ -1,6 +1,7 @@
 import {useEffect, useState } from 'react';
-import LandingPageCard from './LandingPageCard';
-import picture from './picture.webp';
+import React from 'react';
+import LandingPageCard from '../LandingPageCard';
+// import picture from './picture.webp';
 import { Link } from 'react-router-dom';
 
 const UnauthorizedLandingPage = () => {
@@ -69,7 +70,7 @@ const loadLifestyle = async () => {
             <div className="topbox1">
                 <div className="headerbox">
                     <div className="boxes headermainbox" >
-                            <img src={picture} alt="lady"/>     
+                            {/* <img src={picture} alt="lady"/>      */}
                 </div>
                     <div className="boxes headersplitbox">
                         <div className="headersplitcolumn">

@@ -1,4 +1,4 @@
-
+import React from 'react';
 
 function GiftProductCard(props){
     const {  name,  image } = props

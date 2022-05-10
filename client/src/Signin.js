@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import React from 'react';
 const Signin = ({onLogin}) => {
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
@@ -7,6 +7,8 @@ const Signin = ({onLogin}) => {
         const [name, setName] = useState("");
         const [loginEmail, setLoginEmail] = useState("")
         const [loginPassword, setLoginPassword] = useState("")
+        const [firstName, setFirstName] = useState("")
+        const [lastName, setLastName] = useState("")
 
 
         function handleLogin(e) {
@@ -38,7 +40,8 @@ const Signin = ({onLogin}) => {
                     email,
                     password,
                     password_confirmation: passwordConfirmation,
-                    name,
+                    firstName,
+                    lastName,
                 }),
             })
                 .then((r) => r.json())
@@ -70,12 +73,21 @@ const Signin = ({onLogin}) => {
             <div className="signup">
         <form onSubmit={handleSignup}>
                 <div>
-                    <label htmlFor="name">Your Name:</label>
+                    <label htmlFor="name">Your First Name:</label>
                     <input
                     type="text"
                     name="name"
-                    value={name}
-                    onChange={(e)=> setName(e.target.value)}
+                    value={firstName}
+                    onChange={(e)=> setFirstName(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="lastname">Your Last Name:</label>
+                    <input
+                    type="text"
+                    name="lastname"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
                     />
                 </div>
                 <div>
@@ -84,7 +96,9 @@ const Signin = ({onLogin}) => {
                     type="text"
                     name="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => 
+                    setEmail(e.target.value)
+                    }
                     />
                 </div>
                 <div>

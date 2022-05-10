@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_140626) do
+ActiveRecord::Schema.define(version: 2022_01_20_160650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(version: 2022_01_20_140626) do
     t.bigint "wishlist_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "wish_list_id"
+    t.index ["wish_list_id"], name: "index_wish_list_items_on_wish_list_id"
     t.index ["wishlist_id"], name: "index_wish_list_items_on_wishlist_id"
   end
 
@@ -86,4 +88,5 @@ ActiveRecord::Schema.define(version: 2022_01_20_140626) do
     t.index ["user_id"], name: "index_wish_lists_on_user_id"
   end
 
+  add_foreign_key "wish_list_items", "wish_lists"
 end

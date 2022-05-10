@@ -10,7 +10,7 @@ import OrderPage from './OrderPage';
 import ReturnPolicy from './ReturnPolicy';
 import Dashboard from './Dashboard';
 import GiftCards from './GiftCards';
-import About from './About';
+import About from './AuthorizedApp/About';
 import NavBar from "./NavBar";
 import OrderHistory from './OrderHistory';
 import Footer from "./Footer";

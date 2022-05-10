@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ProductCard from './ProductCard';
+import ProductCard from '../ProductCard';
 
-const UnauthorizedClothing = () => {
+const UnauthorizedLifestyle = () => {
     const [products, setProducts] = useState([])
     const [filterColor, setFilterColor] = useState(null);
     const [filterPrice, setFilterPrice] = useState(null);
@@ -10,7 +10,7 @@ const UnauthorizedClothing = () => {
     const [error, setError] = useState('');
 
     useEffect(()=> {
-        fetch("/clothings")
+        fetch("/lifestyles")
         .then((resp)=> {
             if (resp.ok) return resp.json();
             throw new Error ('something went wrong while requesting products');
@@ -138,11 +138,10 @@ const UnauthorizedClothing = () => {
             <div className="sidebar">
             <div className="typeFilter">
             <h3>Filter By Type: </h3>
-              <p> <input type="checkbox" value="Tops"onChange={(e)=> setFilterType(e.target.value)}/> Tops </p> 
-                <p>  <input type="checkbox" value="Bottoms" onChange={(e)=> setFilterType(e.target.value)}/> Bottoms</p>
-                <p> <input type="checkbox" value="Sweaters" onChange={(e)=> setFilterType(e.target.value)}/> Sweater</p>
-            <p> <input type="checkbox" value="Jackets" onChange={(e)=> setFilterType(e.target.value)}/> Jacket </p>
-           <p> <input type="checkbox" value="Dresses" onChange={(e)=> setFilterType(e.target.value)}/> Dress </p>
+              <p> <input type="checkbox" value="Music"onChange={(e)=> setFilterType(e.target.value)}/> Music </p> 
+                <p>  <input type="checkbox" value="Books" onChange={(e)=> setFilterType(e.target.value)}/> Books</p>
+                <p> <input type="checkbox" value="Living" onChange={(e)=> setFilterType(e.target.value)}/> Living</p>
+         
            
             </div>
             <div className="colorFilter">
@@ -170,4 +169,4 @@ const UnauthorizedClothing = () => {
     )
 }
 
-export default UnauthorizedClothing;
+export default UnauthorizedLifestyle;

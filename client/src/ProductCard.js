@@ -1,3 +1,4 @@
+import React from 'react';
 
 function ProductCard(props){
     const {  name, price,  image} = props

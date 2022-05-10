@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import './NavBar.css';
 const NavBar = () => {
   // const [cart, setCart] = useState([])
   const [user, setUser ] = useState(null)
@@ -40,15 +40,25 @@ function handleProfile(user){
     return (
         <nav className="nav">
         <div className="companyheader">
+          <div className="companylogo">
         <a className="logo" href="/"> The Everyday Lady </a>
-        </div>
-        <div className="companylinks">
+          </div>
+        <div className="links">
         <ul className="nav-links">
-        <a href="/about"> <li>About</li></a>
-        <a href="/home"><li> Home</li> </a>
-        <a href="/lifestyle"><li> Lifestyle</li></a>
-        <a href="/clothing"><li> Clothing</li></a>
+          <a href="/about"> 
+            <li> About </li>
+          </a>
+          <a href="/home">
+            <li> Home </li> 
+          </a>
+          <a href="/lifestyle">
+            <li> Lifestyle </li>
+          </a>
+        <a href="/clothing">
+          <li> Clothing </li>
+        </a>
         </ul>
+        </div>
         </div>
         <div className="searchbarandcart">
   

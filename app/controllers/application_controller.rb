@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
     include ActionController::Cookies
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 before_action  :authorize
-
+skip_before_action :authorize, only: [:current_or_guest_user]
 
 def current_or_guest_user
     

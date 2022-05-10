@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import ProductCard from './ProductCard';
-import LandingPageCard from './LandingPageCard';
-
+import ProductCard from '../ProductCard';
+import LandingPageCard from '../LandingPageCard';
+import React from 'react';
 
 const ProductPage = () => {
     const [product, setProduct ] = useState([]);

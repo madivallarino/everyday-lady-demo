@@ -1,3 +1,5 @@
+import React from 'react';
+
 function LandingPageCard(props){
     const {  name, image} = props
     

@@ -1,3 +1,4 @@
+import React from 'react';
 
 const PastOrderedItem = ({product}) => {
     console.log(product)
