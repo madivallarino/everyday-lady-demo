@@ -1,11 +1,17 @@
-import React,  { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import PayPal from "./PayPal";
+import React from "react";
+import ReactDOM from "react-dom"
 import CartItemCard from './CartItemCard'
+
+
 const CartPage = () => {
     const [cartItems, setCartItems ] = useState([])
     const [cartID, setCartID] = useState([])
     const [discount, setDiscount] = useState([])
     const [refresh, setRefresh ] = useState(false)
-
+    
  useEffect(() => {
     fetch('/cart').then((r) => {
       if (r.ok) {
@@ -17,6 +23,8 @@ const CartPage = () => {
       }
     });
   }, [refresh]);
+  
+  
 
 function deleteFromCart(id){
     fetch(`/deleteitem/${id}`, {
@@ -91,10 +99,12 @@ function submitDiscount(e, id){
             <div>
               
 
-                {cartList}
-                <button onClick={()=> submitOrder(cartID)}>Submit Order</button>
+                
+           <PayPal />
+           {/* {cartList} */}
+                      {/* <button onClick={()=> submitOrder(cartID)}>Submit Order</button>
                 <h4>Total: ${discount ? handleDiscountTotal() : totalPrice()}</h4>
-                <form onSubmit={(e)=> submitDiscount(e, cartID)}><label>Discount Code</label><input></input><button>Apply</button></form>
+                <form onSubmit={(e)=> submitDiscount(e, cartID)}><label>Discount Code</label><input></input><button>Apply</button></form> */}
             </div>
     )
 }

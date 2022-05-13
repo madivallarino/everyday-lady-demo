@@ -1,0 +1,14 @@
+.productscontainer{
+    display:flex;
+    height: 100%;
+    width: 100%;
+    border: 5px solid blue;
+    justify-content: center;
+  
+}
+
+.mainarea{
+    border: 5px solid pink;
+    height:100%;
+    width: 70%
+}

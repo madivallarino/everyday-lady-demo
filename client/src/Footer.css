@@ -1,0 +1,23 @@
+.footer { 
+    position: relative; 
+    left: 0 ; right: 0; bottom: 0; 
+     
+}
+
+.otherholder{
+    display:flex;
+    justify-content: space-around;
+    height: fit-content;
+    background-color: #ECD8C7;
+    
+}
+
+.formholder{
+    background-color: #FEF9E7;
+ 
+}
+
+li{
+    list-style: none;
+    text-decoration: none;
+}

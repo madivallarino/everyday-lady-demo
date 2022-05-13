@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
 import LandingPageCard from './LandingPageCard';
-
+import './ProductPage.css'
 
 const ProductPage = () => {
     const [product, setProduct ] = useState([]);
@@ -15,7 +15,7 @@ useEffect(()=> {
     loadData(); 
 },[])
 
-
+console.log(product)
 const loadData = async () => {
     await fetch(`${window.location}`)
     .then((r)=> r.json())
@@ -123,20 +123,23 @@ const handleAlsoLike = (info) => {
  let oneItem = (info[Math.floor(Math.random()* info.length + 6)])
  let twoItem = (info[Math.floor(Math.random()* info.length + 3) ])
  let threeItem = (info[Math.floor(Math.random()* info.length + 2 ) ])
- let fourItem = (info[Math.floor(Math.random()* info.length)])
-let fiveItem = (info[Math.floor(Math.random() * info.length)])
-setRandomItems([oneItem, twoItem, threeItem, fourItem, fiveItem]) 
+//  let fourItem = (info[Math.floor(Math.random()* info.length)])
+// let fiveItem = (info[Math.floor(Math.random() * info.length)])
+setRandomItems([oneItem, twoItem, threeItem]) 
 
 }
 
 const randomItemsfunction = (randomItems) => {
        return randomItems.map((item)=> {
-            return (
-                <div className="randomitems"> 
+           return (
+                
                  <a href={`/products/${item.id}`}>
-                <LandingPageCard name={item.name} image={item.image} />
+                <LandingPageCard 
+                    name={item.name} 
+                    image={item.image} 
+                    key={item.id} />
                 </a>
-                </div>
+               
             )
         })
     
@@ -146,84 +149,85 @@ const randomItemsfunction = (randomItems) => {
 
     return (
         <div className="productpagecontainer">
-            <div className="bigbox">
+            <div className="centerpage">
                 <div className="mainbox">
-                <div className="detailscontainer">
-                        <h1>{product.name}</h1>
-                            <h3>Description:</h3>
-                                <p>{product.desc}</p>
-                                <h3>Color: {product.color}</h3>
-                                <h3>Star Rating: 
-                                {(reviews === []) ?
-                                    <h4>No Reviews Yet :(</h4> : 
-                                    handleStarAverage(reviews)}</h3>
-                                 <button onClick={()=> handleCart(product)}>Add to Bag</button>
-                                    <button onClick={()=> handleWishList(product)}>Add to WishList</button>
-                                    <a onClick={() => setShowShipping(!showShipping)}><h3>Shipping *</h3></a>
-                                    {showShipping ?  <table>
-                                                     <tr>
-                                                     <th>Method</th>
-                                                     <th>Shipping Time</th>
-                                                    <th>Cost</th>
-                                                    </tr>
-                                                        <tr>
-                                                        <td>Standard</td>
-                                                         <td>Arrives in 5-8 Business Days</td>
-                                                         <td>$4.49 on orders under $49.99. FREE on orders over $50</td>
-                                                         </tr>
-                                                        <tr>
-                                                         <td>Express</td>
-                                                        <td>Arrives in 2-3 business days</td>
-                                                        <td>$14.95</td>
-                                                         </tr>
-                                                         <tr>
-                                                            <td>Rush</td>
-                                                            <td>Arrives in 1-2 days</td>
-                                                             <td>$21.95</td>
-                                                         </tr>
-                                                        <tr>
-                                                            <td>Truck</td>
-                                                            <td>Arrives in 2-4 weeks once shipped</td>
-                                                             <td>Costs May Vary</td>
-                                                        </tr>
-                                                            </table> : null}
+                    <div className="infobar">
+                        <p>The Everyday Lady / {product.category}</p>
+                    </div>
+                    <div className="productmain">
+                        <div className="productimages">
+                            <div className="allimages">
+                                <div className="sideimages">
+                                    <img src={product.image} alt="leftimage" />
+                                    <img src={product.backimage} alt="backimage" />
+                                </div>
+                                <div className="mainimages">
+                                    <div className="leftimage">
+                                            <img src={product.image} alt="leftimage" />
+                                    </div>
+                                    <div className="rightimage">
+                                        <img src={product.backimage} alt="rightimage" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='sloganbox'>
+                                <h2>#ExpressYou</h2>
+                                <p>You inspire us. Share your style on social with #ExpressYou and tag @express to be featured here.</p>
+                            </div>
                         </div>
-                <div className="mainimagecontainer">
-                        {flipPicture ? 
-                            <img src={product.backimage} alt="back"/> 
-                                : 
-                            <img src={product.image} alt="forward"/>
-                        }
+                        <div className="productinfo">
+                            <div className="productname">
+                                <h2>{product.name}</h2>
+                            </div>
+                            <div className="productprice">
+                                <p className="bold">TRENDING</p> 
+                                <p className="price">${product.price}.00</p>
+                            </div>
+                            <div className="productcolor">
+                                    
+                            </div>
+                            <div className="productsize">
+                                <p>Select size:</p>
+                            </div>
+                            <div className="productsizechoice">
+                                    <button>XS</button>
+                                    <button>S</button>
+                                    <button>M</button>
+                                    <button>L</button>
+                            </div>
+                            <button className="button">Add to Bag</button>
+                            <div className="productdescription">
+
+                            </div>
+                            <div className="shipping">
+                                <h3>Shipping + Returns </h3>
+                                <h3>+</h3>
+                            </div>
                         </div>
-                        <div className="extraimagescontainer">
-                            <a  onClick={()=> setFlipPicture(true)}>
-                            <img src={product.backimage} alt="back"/>
-                            </a> 
-                            <a  onClick={()=> setFlipPicture(false)}>
-                             <img src={product.image} alt="forward" />
-                            </a>
+                    </div>
+                </div>
+                <div className="productdescriptionbox">
+                    <div className="details">
+                         <h4>Product Details</h4>
+                    </div>
+                    <div className="detailcategories">
+                        <div className="eachcategory"></div>
+                        <div className="eachcategory">
+                            <p>Description</p>
+                            {product.desc}
+                        </div>
+                        <div className="eachcategory"></div>
                     </div> 
                 </div>
-                <div className="reviewbox">
-                    <div className="header">
-                        <h3>Reviews: </h3> 
-                         </div>
-                        <div className="reviewbox">
-                        {(reviews === []) ? 
-                        <h4>No Reviews Yet :(</h4> : 
-                        handleReviews(reviews)}
-                            
-                        </div>
-                 </div>
-            </div>
-          <div className="alsolikebox">
-            <div className="header">
-                <h3>You May Also Like:</h3>
+                <div className="youmayalsolikebox">
+                    <div className="alsoliketext">
+                        You May Also Like:
+                    </div>
+                    <div className="alsolikeimages">
+                    {randomItems ? randomItemsfunction(randomItems) : null}
+                    </div>
                 </div>
-            <div className="randombox">
-             {randomItems ? randomItemsfunction(randomItems) : null}
-          </div>
-        </div>
+            </div>
         </div>
     )
 }
@@ -231,3 +235,83 @@ const randomItemsfunction = (randomItems) => {
 export default ProductPage;
 
 
+
+
+// <div className="bigbox">
+// <div className="mainbox">
+// <div className="detailscontainer">
+//         <h1>{product.name}</h1>
+//             <h3>Description:</h3>
+//                 <p>{product.desc}</p>
+//                 <h3>Color: {product.color}</h3>
+//                 <h3>Star Rating: 
+//                 {(reviews === []) ?
+//                     <h4>No Reviews Yet :(</h4> : 
+//                     handleStarAverage(reviews)}</h3>
+//                  <button onClick={()=> handleCart(product)}>Add to Bag</button>
+//                     <button onClick={()=> handleWishList(product)}>Add to WishList</button>
+//                     <a onClick={() => setShowShipping(!showShipping)}><h3>Shipping *</h3></a>
+//                     {showShipping ?  <table>
+//                                      <tr>
+//                                      <th>Method</th>
+//                                      <th>Shipping Time</th>
+//                                     <th>Cost</th>
+//                                     </tr>
+//                                         <tr>
+//                                         <td>Standard</td>
+//                                          <td>Arrives in 5-8 Business Days</td>
+//                                          <td>$4.49 on orders under $49.99. FREE on orders over $50</td>
+//                                          </tr>
+//                                         <tr>
+//                                          <td>Express</td>
+//                                         <td>Arrives in 2-3 business days</td>
+//                                         <td>$14.95</td>
+//                                          </tr>
+//                                          <tr>
+//                                             <td>Rush</td>
+//                                             <td>Arrives in 1-2 days</td>
+//                                              <td>$21.95</td>
+//                                          </tr>
+//                                         <tr>
+//                                             <td>Truck</td>
+//                                             <td>Arrives in 2-4 weeks once shipped</td>
+//                                              <td>Costs May Vary</td>
+//                                         </tr>
+//                                             </table> : null}
+//         </div>
+// <div className="mainimagecontainer">
+//         {flipPicture ? 
+//             <img src={product.backimage} alt="back"/> 
+//                 : 
+//             <img src={product.image} alt="forward"/>
+//         }
+//         </div>
+//         <div className="extraimagescontainer">
+//             <a  onClick={()=> setFlipPicture(true)}>
+//             <img src={product.backimage} alt="back"/>
+//             </a> 
+//             <a  onClick={()=> setFlipPicture(false)}>
+//              <img src={product.image} alt="forward" />
+//             </a>
+//     </div> 
+// </div>
+// <div className="reviewbox">
+//     <div className="header">
+//         <h3>Reviews: </h3> 
+//          </div>
+//         <div className="reviewbox">
+//         {(reviews === []) ? 
+//         <h4>No Reviews Yet :(</h4> : 
+//         handleReviews(reviews)}
+            
+//         </div>
+//  </div>
+// </div>
+// <div className="alsolikebox">
+// <div className="header">
+// <h3>You May Also Like:</h3>
+// </div>
+// <div className="randombox">
+// {randomItems ? randomItemsfunction(randomItems) : null}
+// </div>
+// </div>

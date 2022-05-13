@@ -15,11 +15,12 @@ import NavBar from "./NavBar";
 import OrderHistory from './OrderHistory';
 import Footer from "./Footer";
 import GiftCardFAQs from './GiftCardFAQs';
+import './AuthorizedApp.css'
 const AuthorizedApp = ({user, handleLogout}) => {
    
 
     return (
-        <div>
+        <div className="Application">
         <NavBar user={user}/>
         <Route path="/about">
             <About />

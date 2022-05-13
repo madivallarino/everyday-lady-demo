@@ -1,10 +1,11 @@
 import React from 'react';
-
+import './Footer.css'
 const Footer = () => {
 
 
     return (
         <div className="footer">
+        <div className="otherholder">
         <div>
           <h3>Help</h3>
           <ul>
@@ -32,6 +33,8 @@ const Footer = () => {
             <li>Creative Services</li>
           </ul>
         </div>
+        </div>
+        <div className="formholder">
         <form>
           <p>Get Our Emails</p>
           <p>Sign up to receive The Everyday Lady's emails and get first dibs on new arrivals, sales, exclusive content and more!</p>
@@ -39,6 +42,7 @@ const Footer = () => {
           <input type="text" placeholder="Email Address.."/>
           <button>Submit</button>
         </form>
+        </div>
         </div>
     )
 }
